@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camping Ground Booker</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <span class="logo">🏕️</span>
+    <h1>Camping Ground Booker</h1>
+    <button id="btn-options" title="Settings" aria-label="Open settings">⚙️</button>
+  </header>
+
+  <!-- Booking list -->
+  <section id="section-bookings">
+    <div id="booking-list-empty" class="empty-state" hidden>
+      <p>No bookings scheduled yet.</p>
+      <p class="hint">Click <strong>+ Add Booking</strong> to get started.</p>
+    </div>
+    <ul id="booking-list" aria-label="Scheduled bookings"></ul>
+  </section>
+
+  <!-- Add booking button -->
+  <div class="add-row">
+    <button id="btn-add" class="btn-primary">+ Add Booking</button>
+  </div>
+
+  <!-- Add / edit booking form (hidden by default) -->
+  <section id="section-form" hidden>
+    <h2 id="form-title">New Booking</h2>
+    <form id="booking-form" novalidate>
+      <label for="f-campsite">Campsite / Park Name</label>
+      <input id="f-campsite" type="text" placeholder="e.g. Banff – Tunnel Mountain" required />
+
+      <label for="f-province">Province</label>
+      <select id="f-province" required>
+        <option value="alberta">Alberta Parks</option>
+        <option value="bc">BC Parks</option>
+      </select>
+
+      <label for="f-arrival">Arrival Date</label>
+      <input id="f-arrival" type="date" required />
+
+      <label for="f-nights">Nights</label>
+      <input id="f-nights" type="number" min="1" max="14" value="2" required />
+
+      <label for="f-party">Party Size</label>
+      <input id="f-party" type="number" min="1" max="8" value="2" required />
+
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Save &amp; Schedule</button>
+        <button type="button" id="btn-cancel" class="btn-secondary">Cancel</button>
+      </div>
+      <p id="form-error" class="form-error" hidden></p>
+    </form>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>
