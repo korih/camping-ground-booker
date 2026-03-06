@@ -16,20 +16,9 @@
  * under a known name.
  */
 
-importScripts(
-  '../utils/rateLimiter.js',
-  '../utils/scheduler.js',
-  '../utils/googleCalendar.js',
-  '../utils/storage.js'
-);
-
-// Convenience aliases for the imported globals.
-const { RateLimiter } = self.RateLimiterModule;
-const { PROVINCES, getBookingOpenTime, getBookingStartTime, getMsUntilBookingOpens } =
-  self.CampingScheduler;
-const { createBookingReminder, getChromeAuthToken } = self.GoogleCalendarHelper;
-const { getBookings, saveBooking, updateBooking, removeBooking, getSettings } =
-  self.CampingStorage;
+import { PROVINCES, getBookingOpenTime, getBookingStartTime } from '../utils/scheduler.js';
+import { createBookingReminder, getChromeAuthToken } from '../utils/googleCalendar.js';
+import { getBookings, saveBooking, updateBooking, removeBooking, getSettings } from '../utils/storage.js';
 
 const SITE_URLS = {
   [PROVINCES.ALBERTA]: 'https://reservations.albertaparks.ca/',
@@ -37,12 +26,6 @@ const SITE_URLS = {
 };
 
 const ALARM_PREFIX = 'camp-booking-';
-
-// Per-province rate limiter (shared across alarms).
-const rateLimiters = {
-  [PROVINCES.ALBERTA]: new RateLimiter({ interval: 3000 }),
-  [PROVINCES.BC]: new RateLimiter({ interval: 3000 }),
-};
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 

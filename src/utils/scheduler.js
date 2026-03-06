@@ -130,25 +130,12 @@ function getMsUntilBookingOpens(campsiteDate, province) {
   return Math.max(0, msUntil);
 }
 
-// Universal export
-if (typeof module !== 'undefined') {
-  module.exports = {
-    PROVINCES,
-    BOOKING_RULES,
-    getBookingOpenTime,
-    getBookingStartTime,
-    isBookingWindowOpen,
-    getMsUntilBookingOpens,
-    getTimezoneOffset,
-  };
-} else {
-  (typeof self !== 'undefined' ? self : window).CampingScheduler = {
-    PROVINCES,
-    BOOKING_RULES,
-    getBookingOpenTime,
-    getBookingStartTime,
-    isBookingWindowOpen,
-    getMsUntilBookingOpens,
-    getTimezoneOffset,
-  };
-}
+export {
+  PROVINCES,
+  BOOKING_RULES,
+  getBookingOpenTime,
+  getBookingStartTime,
+  isBookingWindowOpen,
+  getMsUntilBookingOpens,
+  getTimezoneOffset,
+};

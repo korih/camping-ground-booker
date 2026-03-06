@@ -1,9 +1,10 @@
-const {
+import { jest } from '@jest/globals';
+import {
   createBookingReminder,
   deleteBookingReminder,
   CALENDAR_API_BASE,
   CALENDAR_SCOPES,
-} = require('../src/utils/googleCalendar');
+} from '../src/utils/googleCalendar.js';
 
 describe('GoogleCalendar', () => {
   // ── constants ─────────────────────────────────────────────────────────────

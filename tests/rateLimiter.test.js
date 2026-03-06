@@ -1,4 +1,5 @@
-const { RateLimiter, DEFAULT_OPTIONS } = require('../src/utils/rateLimiter');
+import { jest } from '@jest/globals';
+import { RateLimiter, DEFAULT_OPTIONS } from '../src/utils/rateLimiter.js';
 
 describe('RateLimiter', () => {
   beforeEach(() => jest.useFakeTimers());

@@ -1,9 +1,10 @@
 {
   "name": "camping-ground-booker",
   "version": "1.0.0",
+  "type": "module",
   "description": "Browser extension to automatically book Alberta and BC camping spots as soon as reservations open, with Google Calendar integration.",
   "scripts": {
-    "test": "jest"
+    "test": "node --experimental-vm-modules node_modules/.bin/jest"
   },
   "devDependencies": {
     "jest": "^29.7.0"

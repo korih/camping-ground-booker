@@ -131,9 +131,4 @@ class RateLimiter {
   }
 }
 
-// Universal module export: CommonJS for Node.js/Jest, global for browser.
-if (typeof module !== 'undefined') {
-  module.exports = { RateLimiter, DEFAULT_OPTIONS };
-} else {
-  (typeof self !== 'undefined' ? self : window).RateLimiterModule = { RateLimiter, DEFAULT_OPTIONS };
-}
+export { RateLimiter, DEFAULT_OPTIONS };

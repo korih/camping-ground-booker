@@ -1,11 +1,11 @@
-const {
+import {
   PROVINCES,
   BOOKING_RULES,
   getBookingOpenTime,
   getBookingStartTime,
   isBookingWindowOpen,
   getMsUntilBookingOpens,
-} = require('../src/utils/scheduler');
+} from '../src/utils/scheduler.js';
 
 describe('Scheduler', () => {
   // ── PROVINCES ─────────────────────────────────────────────────────────────

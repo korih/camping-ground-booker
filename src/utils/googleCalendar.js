@@ -171,23 +171,11 @@ async function revokeChromeAuthToken(token) {
   });
 }
 
-// Universal export
-if (typeof module !== 'undefined') {
-  module.exports = {
-    CALENDAR_API_BASE,
-    CALENDAR_SCOPES,
-    createBookingReminder,
-    deleteBookingReminder,
-    getChromeAuthToken,
-    revokeChromeAuthToken,
-  };
-} else {
-  (typeof self !== 'undefined' ? self : window).GoogleCalendarHelper = {
-    CALENDAR_API_BASE,
-    CALENDAR_SCOPES,
-    createBookingReminder,
-    deleteBookingReminder,
-    getChromeAuthToken,
-    revokeChromeAuthToken,
-  };
-}
+export {
+  CALENDAR_API_BASE,
+  CALENDAR_SCOPES,
+  createBookingReminder,
+  deleteBookingReminder,
+  getChromeAuthToken,
+  revokeChromeAuthToken,
+};

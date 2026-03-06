@@ -2,6 +2,8 @@
 
 A **Chrome/Edge browser extension** that automatically books camping spots on **Alberta Parks** and **BC Parks** reservation websites the moment a booking window opens — without getting rate-limit blocked. It also integrates with **Google Calendar** so you always get a reminder before the window opens.
 
+# This thing is ass, need to rework it to actually work, it don't need so much automation, just the ability to kinda spam the booking for you
+
 ---
 
 ## Features

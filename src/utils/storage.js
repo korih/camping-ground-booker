@@ -128,27 +128,13 @@ async function saveSettings(storageArea, settings) {
   return merged;
 }
 
-// Universal export
-if (typeof module !== 'undefined') {
-  module.exports = {
-    STORAGE_KEYS,
-    DEFAULT_SETTINGS,
-    getBookings,
-    saveBooking,
-    updateBooking,
-    removeBooking,
-    getSettings,
-    saveSettings,
-  };
-} else {
-  (typeof self !== 'undefined' ? self : window).CampingStorage = {
-    STORAGE_KEYS,
-    DEFAULT_SETTINGS,
-    getBookings,
-    saveBooking,
-    updateBooking,
-    removeBooking,
-    getSettings,
-    saveSettings,
-  };
-}
+export {
+  STORAGE_KEYS,
+  DEFAULT_SETTINGS,
+  getBookings,
+  saveBooking,
+  updateBooking,
+  removeBooking,
+  getSettings,
+  saveSettings,
+};
