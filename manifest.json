@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Camping Ground Booker",
+  "version": "1.0.0",
+  "description": "Automatically book Alberta and BC camping spots the moment reservations open. Integrates with Google Calendar for reminders.",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "identity",
+    "tabs",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://reservations.albertaparks.ca/*",
+    "https://www.albertaparks.ca/*",
+    "https://camping.bcparks.ca/*",
+    "https://www.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://reservations.albertaparks.ca/*"],
+      "js": ["src/content/common.js", "src/content/alberta.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://camping.bcparks.ca/*"],
+      "js": ["src/content/common.js", "src/content/bc.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_title": "Camping Ground Booker"
+  },
+  "options_ui": {
+    "page": "src/options/options.html",
+    "open_in_tab": true
+  },
+  "oauth2": {
+    "client_id": "YOUR_GOOGLE_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/calendar.events"]
+  }
+}

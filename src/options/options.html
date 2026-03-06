@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camping Ground Booker – Settings</title>
+  <link rel="stylesheet" href="options.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <span class="logo">🏕️</span>
+      <div>
+        <h1>Camping Ground Booker</h1>
+        <p class="subtitle">Settings</p>
+      </div>
+    </header>
+
+    <div id="status-banner" class="banner" hidden></div>
+
+    <!-- ── Google Calendar ─────────────────────────────────────────── -->
+    <section class="card">
+      <h2>Google Calendar</h2>
+      <p class="section-desc">
+        Create calendar reminders that fire just before each booking window
+        opens so you're always prepared.
+      </p>
+
+      <div class="field-row">
+        <label class="toggle-label" for="opt-gcal-enabled">
+          Enable Google Calendar reminders
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="opt-gcal-enabled" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div id="gcal-details" class="sub-section" hidden>
+        <div class="field-group">
+          <label for="opt-calendar-id">Calendar ID</label>
+          <input
+            type="text"
+            id="opt-calendar-id"
+            placeholder="primary"
+            autocomplete="off"
+          />
+          <span class="field-hint">
+            Use <code>primary</code> for your default calendar, or enter a
+            specific calendar ID from Google Calendar settings.
+          </span>
+        </div>
+
+        <div class="auth-row">
+          <button id="btn-gcal-connect" class="btn-primary">
+            Connect Google Account
+          </button>
+          <button id="btn-gcal-disconnect" class="btn-secondary" hidden>
+            Disconnect
+          </button>
+          <span id="gcal-auth-status" class="auth-status"></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Booking behaviour ──────────────────────────────────────── -->
+    <section class="card">
+      <h2>Booking Behaviour</h2>
+
+      <div class="field-row">
+        <label class="toggle-label" for="opt-auto-book">
+          Auto-book when a site becomes available
+          <span class="field-hint block">
+            When enabled the extension will automatically fill and submit the
+            booking form. When disabled it only notifies you.
+          </span>
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="opt-auto-book" />
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="field-row">
+        <label class="toggle-label" for="opt-notify">
+          Show desktop notification when a site is available
+        </label>
+        <label class="toggle">
+          <input type="checkbox" id="opt-notify" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- ── Rate limiting ──────────────────────────────────────────── -->
+    <section class="card">
+      <h2>Rate Limiting</h2>
+      <p class="section-desc">
+        These settings control how often the extension checks for availability
+        to avoid being blocked by the reservation websites.
+      </p>
+
+      <div class="field-group">
+        <label for="opt-check-interval">
+          Check interval when window is open (seconds)
+        </label>
+        <input
+          type="number"
+          id="opt-check-interval"
+          min="2"
+          max="60"
+          step="1"
+          value="5"
+        />
+        <span class="field-hint">Minimum 2 s to avoid rate limiting (recommended: 5 s).</span>
+      </div>
+
+      <div class="field-group">
+        <label for="opt-max-duration">
+          Max time to keep checking after window opens (minutes)
+        </label>
+        <input
+          type="number"
+          id="opt-max-duration"
+          min="5"
+          max="120"
+          step="5"
+          value="30"
+        />
+      </div>
+    </section>
+
+    <div class="save-row">
+      <button id="btn-save" class="btn-primary">Save Settings</button>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
